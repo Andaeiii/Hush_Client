@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'; //all components starts with caps.. 
+
+import { useDispatch } from 'react-redux';
+import { getPosts } from './actions/posts';
 
 import memories from './images/memories.png';       //import image... 
 import Posts from './components/Posts/Posts';
@@ -9,7 +12,12 @@ import useStyles from './styles';
 
 const App = () => {
 
+    const dispatch = useDispatch();     //initialize the Dispatch...
     const classes = useStyles();
+
+    useEffect(() => {
+        dispatch(getPosts());       //call the get posts.. on load.
+    }, [dispatch]);
 
     return (
         <Container maxWidth="lg">
