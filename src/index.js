@@ -6,6 +6,8 @@ import { Provider } from 'react-redux'; // keep track of the store...
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
+import './index.css';
+
 import reducers from './reducers';    //from the redux/reducer/index.js file.. 
 
 //import root component... 
