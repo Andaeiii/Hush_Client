@@ -7,6 +7,7 @@ const reducer = (posts = [], action) => {  //always initialize the state(posts) 
             break;
 
         case 'CREATE_POST':
+            return [...posts, action.payload];
             return posts;
             break;
 

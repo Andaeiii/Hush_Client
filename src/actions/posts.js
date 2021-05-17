@@ -6,17 +6,25 @@ export const getPosts = () => async (dispatch) => {            //async(dispatch)
 
     try {
 
-        const { data } = await api.fetchPosts();        //get the data from the api in the action creators... 
-        dispatch({ type: 'FETCH_ALL', payload: data });  //dispatch the data as the payload to the reducer.....
+        const { data } = await api.fetchPosts();                            //get the data from the api in the action creators... 
+        dispatch({ type: 'FETCH_ALL', payload: data });                     //dispatch the data as the payload to the reducer.....
 
     } catch (error) {
-
         console.log(error.message)
 
     }
 
 };
 
+
+export const createPost = (postdata) => async (dispatch) => {
+    try {
+        const { data } = await api.createPost(postdata);
+        dispatch({ type: 'CREATE_POST', payload: data });
+    } catch (error) {
+        console.log(error.message)
+    }
+}
 
 /*
 
